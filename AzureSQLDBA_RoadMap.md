@@ -275,6 +275,9 @@ And use this as your main course:
 That ordering is slightly different from studying purely for the certification, because it maps more closely to the responsibilities you posted.
 
 [1]: https://learn.microsoft.com/en-us/training/courses/dp-300t00 "Course DP-300T00-A: Implement scalable database solutions using Azure SQL - Training | Microsoft Learn"
+
 [2]: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ "Study guide for Exam DP-300: Administering Microsoft Azure SQL Solutions | Microsoft Learn"
+
 [3]: https://learn.microsoft.com/en-us/training/paths/migrate-sql-workloads-azure/ "Migrate SQL Server workloads to Azure SQL DP-3001 - Training | Microsoft Learn"
+
 [4]: https://learn.microsoft.com/en-us/training/modules/perform-post-migration-tasks-azure-sql/ "Perform post-migration tasks on Azure SQL - Training | Microsoft Learn"
