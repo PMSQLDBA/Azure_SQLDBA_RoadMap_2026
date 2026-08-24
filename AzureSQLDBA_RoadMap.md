@@ -256,13 +256,21 @@ And use this as your main course:
 ### For your Azure DBA job, prioritize in this order
 
 **#1 Azure SQL Managed Instance**
+
 **#2 Microsoft Entra + SQL security**
+
 **#3 Migration to Azure**
+
 **#4 Monitoring / Query Store / DMVs / performance**
+
 **#5 Backup + HA/DR**
+
 **#6 SQL Server on Azure VM**
+
 **#7 PowerShell / CLI / automation**
+
 **#8 Azure SQL Database**
+
 
 That ordering is slightly different from studying purely for the certification, because it maps more closely to the responsibilities you posted.
 
