@@ -1,308 +1,272 @@
-**Azure DBA / Azure SQL Managed Instance production-support role**, with a strong overlap with Microsoft's DP-300 curriculum.
+Microsoft's **current DP-300 course and the April 24, 2026 exam objectives**. 
 
-The best approach is: **Microsoft video training → Microsoft Learn labs → focused Azure SQL MI/migration videos → hands-on Azure practice**.
+Azure DBA job description maps extremely well to DP-300. 
 
-## 1. Best overall video course: DP-300 Azure SQL
+Microsoft currently expects experience with Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VMs, and on-prem SQL Server. ([Microsoft Learn][1])
 
-This is the closest match to your job requirements.
+The goal isn't just passing DP-300 — it's being able to handle the Azure DBA responsibilities you listed.
 
-Microsoft has a free instructor-led, on-demand **DP-300 Azure SQL training series** covering SQL Database, Managed Instance, SQL Server on Azure VMs, security, monitoring, performance, HA/DR, migration and automation. A published index describes the course as a free multi-module video training series. ([Kurt Shintaku's Blog][1])
+### Phase 1 — Azure SQL architecture, deployment and migration
 
-[Free DP-300 instructor-led video training index](https://kurtsh.com/2024/05/09/training-dp-300-administering-microsoft-azure-sql-solutions-on-demand-instructor-led-videos/)
+Start with Microsoft's current official course landing page:
 
-Also keep the current official Microsoft course syllabus beside the videos:
+[DP-300: Implement scalable database solutions using Azure SQL](https://learn.microsoft.com/en-us/training/courses/dp-300t00)
 
-[Microsoft DP-300 course and learning paths](https://learn.microsoft.com/en-us/training/courses/dp-300t00)
+Then complete:
 
-**Priority: 10/10. Start here.**
+[Plan and implement data platform resources](https://learn.microsoft.com/en-us/training/paths/plan-implement-data-platform-resources)
 
----
+This covers Azure SQL deployment choices, SQL Server on Azure VMs/IaaS, PaaS solutions, scaling, networking, performance and migration. The current DP-300 syllabus lists **5 modules** in this path. ([Microsoft Learn][1])
 
-## 2. Microsoft "Azure SQL for Beginners" video series
+For your job, pay particular attention to understanding when to choose:
 
-Don't let the word *Beginners* put you off. This is particularly useful if you already know traditional SQL Server DBA work and need to understand how Azure changes the architecture.
+**SQL Server on Azure VM → Azure SQL Managed Instance → Azure SQL Database**
 
-Microsoft describes the series as being designed to bring SQL Server professionals into **Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM**. ([YouTube][2])
+You should be able to explain the decision based on SQL Server compatibility, OS access, SQL Agent, networking, HA/DR, migration complexity, management overhead and cost.
 
-[Introduction to Azure SQL for Beginners — Microsoft](https://www.youtube.com/watch?v=Dtr6eRVZQ8I&utm_source=chatgpt.com)
-
-The Managed Instance episode is especially relevant:
-
-[Azure SQL Managed Instance Deployment Options — Microsoft](https://www.youtube.com/watch?v=5HAwy9d3MO8&utm_source=chatgpt.com)
-
-I'd watch the complete Azure SQL series rather than only those two episodes.
-
-**Priority: 9/10.**
+**Time:** ~1 week.
 
 ---
 
-# 3. Azure SQL Managed Instance — spend extra time here
+### Phase 2 — Azure SQL Managed Instance
 
-Based on your requirements, **SQL Managed Instance should probably receive the largest share of your preparation time**.
+For your particular role, I'd make **Azure SQL MI your deepest subject**.
 
-You need to understand:
+The current DP-300 objectives explicitly require configuring Azure SQL Managed Instance for scale/performance, authentication, migrations, database copy/move, monitoring, security and HA/DR. ([Microsoft Learn][2])
+
+Study and lab:
 
 * MI architecture
 * General Purpose vs Business Critical
-* vCores/storage
-* VNet/subnet requirements
-* NSGs and routing
-* Private connectivity
-* DNS
-* SSMS connectivity
+* Instance pools
+* vCore/storage sizing
+* VNet and dedicated subnet
+* NSG/routing/connectivity
+* Private endpoints
+* SQL Agent
+* SQL logins/users
 * Microsoft Entra authentication
-* SQL authentication
-* backups/restores
+* backup/restore
 * PITR
 * LTR
-* SQL Agent
-* monitoring
-* scaling
 * maintenance
-* HA architecture
+* monitoring
 * failover groups
-* disaster recovery
 * Managed Instance Link
-* migration to MI
+* database copy/move
+* scaling
 
-Microsoft's Azure SQL documentation is an excellent hub because it separates material for SQL Database, Managed Instance, and SQL Server on Azure VM and includes videos, quickstarts, security, business continuity, monitoring, migration, CLI and PowerShell references. ([Microsoft Learn][3])
+**Time:** ~1 week.
 
-[Microsoft Azure SQL documentation and video hub](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql&utm_source=chatgpt.com)
-
-For hands-on practice, Microsoft's current MI quickstart walks through creating an MI using the **Portal, PowerShell and Azure CLI**. ([Microsoft Learn][4])
-
-[Hands-on: Create Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&utm_source=chatgpt.com)
-
-Microsoft also currently offers an Azure SQL Managed Instance free offer for eligible subscriptions, which can be useful for building a lab rather than learning only through videos. ([Microsoft Learn][5])
-
-[Azure SQL Managed Instance free offer](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/free-offer?view=azuresql&utm_source=chatgpt.com)
-
-**Priority: 10/10.**
+This is one area where I would supplement DP-300 with the dedicated Azure SQL MI documentation and hands-on labs.
 
 ---
 
-# 4. SQL Server → Azure migration training
+### Phase 3 — SQL Server → Azure migration
 
-This is another major part of your job description.
+Microsoft now has a dedicated **9+ hour migration learning path**, and it's very relevant to your job description:
 
-Start with Microsoft's migration video:
+[Migrate SQL Server workloads to Azure SQL](https://learn.microsoft.com/en-us/training/paths/migrate-sql-workloads-azure/)
 
-[Migrate SQL Server to Azure — Data Exposed](https://www.youtube.com/watch?v=ak9BeDnUWXM&utm_source=chatgpt.com)
+The current material includes assessment, compatibility analysis, Azure SQL Migration Extension/Database Migration Assistant, Azure SQL provisioning, online/offline migration decisions and migration monitoring. ([Microsoft Learn][3])
 
-It covers migration scenarios, Azure Migrate, SQL Server on Azure VM, online migration to Azure SQL Managed Instance, assessment and optimization. ([YouTube][6])
+For Managed Instance specifically, Microsoft currently teaches:
 
-Then watch:
+**Azure Arc → Log Replay Service (LRS) → Managed Instance Link → data movement/migration**. ([Microsoft Learn][3])
 
-[Plan your SQL Migration to Azure with confidence — Data Exposed](https://www.youtube.com/watch?v=-yq-hJaiJZE&utm_source=chatgpt.com)
+Also complete the post-migration module:
 
-That one is useful for learning **discovery → assessment → target selection → sizing → migration planning**. ([YouTube][7])
+[Perform post-migration tasks on Azure SQL](https://learn.microsoft.com/en-us/training/modules/perform-post-migration-tasks-azure-sql/)
 
-After the videos, do this Microsoft Learn module:
+That module is particularly good for your job because it combines login/group migration, security, compliance, monitoring, HA/DR and automation. ([Microsoft Learn][4])
 
-[Migrate SQL Server workloads to Azure SQL Managed Instance](https://learn.microsoft.com/en-us/training/modules/migrate-sql-workloads-azure-managed-instances/?utm_source=chatgpt.com)
-
-It covers current migration approaches including **Azure Arc migration, Log Replay Service (LRS), Managed Instance Link, data movement and migration exercises**. ([Microsoft Learn][8])
-
-You should be able to explain in an interview when you'd use:
-
-**Backup/Restore → LRS → Managed Instance Link → Azure migration tooling → offline vs online migration.**
-
-**Priority: 10/10.**
+**Time:** ~4–5 days.
 
 ---
 
-# 5. Microsoft Entra ID + Azure SQL Security
+### Phase 4 — Security + Microsoft Entra
 
-Don't treat this as a small topic. Your job description specifically calls it out, which usually means interviewers will ask about it.
+Go back to the DP-300 course and complete:
 
-Use Microsoft's security module:
+**Implement a secure environment for a database service — all 3 modules.**
 
-[Plan and implement security for Azure SQL Database and Managed Instance](https://learn.microsoft.com/en-us/training/modules/security-azure-sql-database-azure-sql-managed-instance/?utm_source=chatgpt.com)
+[Official DP-300 course syllabus](https://learn.microsoft.com/en-us/training/courses/dp-300t00)
 
-It covers Microsoft Entra database authentication, auditing, TDE, Always Encrypted, masking, firewall configuration and related security topics. ([Microsoft Learn][9])
+Do not skim this section.
 
-Then:
+The 2026 DP-300 objectives specifically require Microsoft Entra authentication for **Azure SQL Database, Azure SQL MI and SQL Server**, security principals, users from Entra identities, least privilege, T-SQL authorization, TDE, Always Encrypted, firewall rules, Private Link/service endpoints, auditing, masking and row-level security. ([Microsoft Learn][2])
 
-[Configure platform-level security for Azure SQL](https://learn.microsoft.com/en-us/training/modules/configure-azure-sql-platform-security/?utm_source=chatgpt.com)
+For your job, be able to explain this chain clearly:
 
-This specifically covers **Microsoft Entra ID-only authentication, managed identities, private endpoints, firewall rules, TDE, customer-managed keys, dynamic masking and row-level security**. ([Microsoft Learn][10])
+**Entra Tenant → User/Group → Entra Admin → Authentication → CREATE USER FROM EXTERNAL PROVIDER → Database Roles/GRANT → Authorization**
 
-Make sure you understand the difference between:
+Also understand the difference between:
 
-`CREATE LOGIN`
+**Azure RBAC ≠ SQL database permissions.**
 
-`CREATE USER`
+That's an important real-world Azure DBA concept.
 
-`CREATE USER ... FROM EXTERNAL PROVIDER`
-
-Microsoft Entra admin
-
-Entra groups
-
-Managed Identity
-
-Service Principal
-
-Azure RBAC
-
-SQL database permissions
-
-These concepts get mixed up frequently in Azure DBA interviews.
-
-**Priority: 10/10.**
+**Time:** ~4 days.
 
 ---
 
-# 6. Performance monitoring — Azure Monitor + Query Store + DMVs
+### Phase 5 — Monitoring and performance
 
-For this requirement:
+Complete both of these official DP-300 paths:
 
-> Azure Monitor, Query Store, DMVs, alerts and diagnostic logs
+**Monitor and optimize operational resources in Azure SQL — 3 modules**
 
-use Microsoft's performance learning path:
+**Optimize query performance in Azure SQL — 3 modules**
 
-[Monitor and optimize operational resources in Azure SQL](https://learn.microsoft.com/en-us/training/paths/monitor-optimize-operational-resources-sql-server/?utm_source=chatgpt.com)
+Both are currently part of Microsoft's official DP-300 course. ([Microsoft Learn][1])
 
-It covers monitoring, baselines, performance troubleshooting and resource optimization. ([Microsoft Learn][11])
+This maps directly to your requirement for:
 
-Especially complete:
+**Azure Monitor + Query Store + DMVs + alerts + diagnostic logs.**
 
-[Describe performance monitoring](https://learn.microsoft.com/en-us/training/modules/describe-performance-monitoring/?utm_source=chatgpt.com)
+The 2026 objectives specifically include Database Watcher, Extended Events, Query Store, session blocking, DMVs, execution plans, indexes, Intelligent Insights, statistics maintenance, integrity checks, automatic tuning, Resource Governor and Intelligent Query Processing. ([Microsoft Learn][2])
 
-That covers critical Azure metrics, baselines, Extended Events, Query Performance Insight and Azure SQL monitoring tooling. ([Microsoft Learn][12])
+Practice scenarios such as:
 
-Also bookmark Microsoft's live monitoring/tuning documentation because Azure's monitoring capabilities continue to evolve:
+> Azure SQL MI CPU was normally 30%, but suddenly reaches 95%. How do you troubleshoot?
 
-[Azure SQL monitoring and performance tuning documentation](https://learn.microsoft.com/en-us/azure/azure-sql/database/monitoring-tuning-index?view=azuresql&utm_source=chatgpt.com)
+Your thought process should become something like:
 
-Then study:
+**Azure Monitor → CPU/IO/storage metrics → Query Store → top resource-consuming queries → waits → DMVs → blocking → execution plans → indexes/statistics → recent plan changes → remediation.**
 
-**Azure side**
+That's much closer to a real Azure DBA interview than memorizing definitions.
 
-Azure Monitor → Metrics → Log Analytics → Diagnostic Settings → Alerts → Database Watcher
-
-**SQL side**
-
-Query Store → DMVs → execution plans → waits → blocking → indexes → statistics → Extended Events.
-
-You want to be comfortable troubleshooting a statement like:
-
-> "Azure SQL MI CPU suddenly increased from 30% to 95%. Find the cause."
-
-**Priority: 10/10.**
+**Time:** ~1 week.
 
 ---
 
-# 7. SQL Server on Azure VM
+### Phase 6 — Backup + HA/DR
 
-Don't focus only on PaaS.
+Complete:
 
-Your requirements explicitly include:
+**Plan and implement a high availability and disaster recovery environment — all 3 modules.**
 
-> SQL Server on Azure VMs
+It's another current DP-300 learning path. ([Microsoft Learn][1])
 
-The Microsoft Azure SQL documentation hub has a dedicated SQL Server on Azure VM section covering Windows/Linux VMs, SQL IaaS Agent extension, performance and HA/DR. ([Microsoft Learn][3])
+For your role, learn the differences between:
 
-[Azure SQL / SQL Server on Azure VM documentation hub](https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql&utm_source=chatgpt.com)
+**Automated backups**
 
-For DBA work, concentrate on:
+**PITR**
 
-**SQL VM architecture → storage → Premium SSD → disk layout → tempdb → SQL IaaS Agent extension → automated backup → automated patching → Availability Zones → Always On AG → Azure Load Balancer → Azure Backup.**
+**Long-term retention**
 
-Microsoft's performance module also covers Azure storage optimization, VM sizing, tempdb and SQL Server resource configuration. ([Microsoft Learn][13])
+**Geo-restore**
 
-[Configure SQL Server resources for optimal performance](https://learn.microsoft.com/en-us/training/modules/configure-sql-server-resources-optimal-performance/?utm_source=chatgpt.com)
+**Active geo-replication**
 
-**Priority: 8/10.**
+**Failover groups**
 
----
+**Azure SQL MI failover groups**
 
-# 8. PowerShell + Azure CLI + DBA automation
+**Managed Instance Link**
 
-This is another area where I'd strongly recommend **hands-on practice instead of just watching videos**.
+**SQL Server Always On Availability Groups**
 
-Microsoft has a dedicated Azure SQL automation learning path:
+**Azure VM HA**
 
-[Automate database tasks for Azure SQL](https://learn.microsoft.com/en-us/training/paths/automate-tasks-sql-server/?utm_source=chatgpt.com)
+The important interview concept is not simply knowing what each feature does.
 
-It includes database deployment, **SQL Agent jobs**, Azure Automation, Elastic Jobs, monitoring automated tasks and maintenance automation. ([Microsoft Learn][14])
+You should be able to receive:
 
-Also complete:
+> RPO = 5 minutes
+> RTO = 30 minutes
+> Region-wide failure must be supported.
 
-[Automate database deployment](https://learn.microsoft.com/en-us/training/modules/configure-automatic-deployment-azure-sql-database/?utm_source=chatgpt.com)
+...and design an appropriate DR solution.
 
-It explicitly covers **PowerShell, Azure CLI, ARM and Bicep** for Azure SQL deployment. ([Microsoft Learn][15])
-
-And:
-
-[Manage Azure PaaS tasks using automation](https://learn.microsoft.com/en-us/training/modules/manage-azure-paas-resources-using-automated-methods/?utm_source=chatgpt.com)
-
-That introduces Azure Automation runbooks and database maintenance automation. ([Microsoft Learn][16])
-
-**Priority: 8/10.**
+**Time:** ~4 days.
 
 ---
 
-# My recommended training order
+### Phase 7 — PowerShell, Azure CLI and automation
 
-Don't study the technologies randomly. I'd follow this sequence:
+Complete:
 
-| Week | Focus                                             | Importance |
-| ---- | ------------------------------------------------- | ---------: |
-| 1    | Azure SQL architecture: DB vs MI vs SQL VM        |      ⭐⭐⭐⭐⭐ |
-| 2    | Azure SQL Managed Instance administration         |      ⭐⭐⭐⭐⭐ |
-| 3    | Networking + connectivity + Private Endpoint/VNet |      ⭐⭐⭐⭐⭐ |
-| 4    | Entra ID + security + TDE + permissions           |      ⭐⭐⭐⭐⭐ |
-| 5    | Backup/restore + PITR + LTR                       |      ⭐⭐⭐⭐⭐ |
-| 6    | HA/DR + failover groups + MI Link                 |      ⭐⭐⭐⭐⭐ |
-| 7    | SQL Server → Azure migration                      |      ⭐⭐⭐⭐⭐ |
-| 8    | Azure Monitor + Query Store + DMVs                |      ⭐⭐⭐⭐⭐ |
-| 9    | Performance troubleshooting/tuning                |      ⭐⭐⭐⭐⭐ |
-| 10   | PowerShell + Azure CLI + automation               |       ⭐⭐⭐⭐ |
-| 11   | SQL Server on Azure VM                            |       ⭐⭐⭐⭐ |
-| 12   | Production scenarios + interview preparation      |      ⭐⭐⭐⭐⭐ |
+**Automate database tasks for Azure SQL — all 3 modules.**
 
-You can compress this into **6 weeks** by combining two rows each week if you're preparing for interviews quickly.
+It's part of the current DP-300 syllabus. ([Microsoft Learn][1])
 
-## Most important point
+The April 2026 objectives explicitly require:
 
-Your requirements are **not simply "learn Azure SQL."** They describe someone expected to operate a production Azure SQL environment.
+**SQL Server Agent → ARM → Bicep → Azure PowerShell → Azure CLI → deployment troubleshooting → Elastic Jobs.** ([Microsoft Learn][2])
 
-So I would spend roughly:
+For your job, don't try to become a PowerShell developer. Learn enough to automate DBA operations.
 
-**30% — Azure SQL Managed Instance**
+For example:
 
-**15% — migration**
+```text
+Get SQL resources
+        ↓
+Check database status
+        ↓
+Scale database/MI
+        ↓
+Configure firewall/networking
+        ↓
+Run T-SQL
+        ↓
+Check backup/restore
+        ↓
+Collect metrics
+        ↓
+Create alerts
+```
 
-**15% — performance/monitoring**
+**Time:** ~3–4 days.
 
-**15% — security + Microsoft Entra**
+---
 
-**10% — backup + HA/DR**
+## Your complete 6-week roadmap
 
-**10% — Azure SQL DB + SQL VM**
+organize everything this way:
 
-**5% — CLI/PowerShell/automation**
+| Week  | Study                                        | Hands-on target                               |
+| ----- | -------------------------------------------- | --------------------------------------------- |
+| **1** | Azure fundamentals + SQL DB vs MI vs VM      | Deploy SQL DB + understand MI/VM architecture |
+| **2** | **Azure SQL Managed Instance**               | MI networking, DBs, SQL Agent, connectivity   |
+| **3** | **Entra + security + migration**             | Entra users/groups + migrate sample DB        |
+| **4** | **Monitoring + Query Store + performance**   | Troubleshoot intentionally slow SQL           |
+| **5** | **Backup + restore + HA/DR**                 | PITR + restore + design DR scenarios          |
+| **6** | **PowerShell/CLI + automation + interviews** | Automate DBA operations + scenario questions  |
 
-The DP-300 material gives you the structure, but your **MI lab work and production troubleshooting scenarios** are what will make you interview/job-ready.
+spend **2–3 hours/day**, with approximately **60% learning and 40% hands-on work**.
 
-If you want, I can also turn these exact responsibilities into a **6-week Azure DBA learning plan with specific YouTube videos, Microsoft Learn modules, hands-on labs, T-SQL/PowerShell exercises, and 50+ interview questions**, in the exact order you should study them.
+---
 
-I can also remind you to work through the plan on a regular schedule.
+## One change from traditional DP-300 preparation
 
-[1]: https://kurtsh.com/2024/05/09/training-dp-300-administering-microsoft-azure-sql-solutions-on-demand-instructor-led-videos/?utm_source=chatgpt.com "TRAINING: “DP-300 Administering Microsoft Azure SQL Solutions” – On-demand, Instructor-led videos | Kurt Shintaku's Blog"
-[2]: https://www.youtube.com/watch?v=Dtr6eRVZQ8I&utm_source=chatgpt.com "Introduction to Azure SQL for beginners | Azure SQL for beginners (Ep. 1) - YouTube"
-[3]: https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql&utm_source=chatgpt.com "Azure SQL documentation - Azure SQL | Microsoft Learn"
-[4]: https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql&utm_source=chatgpt.com "Quickstart: Create Azure SQL Managed Instance - Azure SQL Managed Instance | Microsoft Learn"
-[5]: https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/free-offer?view=azuresql&utm_source=chatgpt.com "Try Azure SQL Managed Instance for Free - Azure SQL Managed Instance | Microsoft Learn"
-[6]: https://www.youtube.com/watch?v=ak9BeDnUWXM&utm_source=chatgpt.com "Migrate SQL Server to Azure | Data Exposed - YouTube"
-[7]: https://www.youtube.com/watch?v=-yq-hJaiJZE&utm_source=chatgpt.com "Plan your SQL Migration to Azure with confidence | Data Exposed - YouTube"
-[8]: https://learn.microsoft.com/en-us/training/modules/migrate-sql-workloads-azure-managed-instances/?utm_source=chatgpt.com "Migrate SQL Server workloads to Azure SQL Managed Instance - Training | Microsoft Learn"
-[9]: https://learn.microsoft.com/en-us/training/modules/security-azure-sql-database-azure-sql-managed-instance/?utm_source=chatgpt.com "Plan and implement security for Azure SQL Database and Azure SQL Managed Instance - Training | Microsoft Learn"
-[10]: https://learn.microsoft.com/en-us/training/modules/configure-azure-sql-platform-security/?utm_source=chatgpt.com "Configure Platform-Level Security for Azure SQL - Training | Microsoft Learn"
-[11]: https://learn.microsoft.com/en-us/training/paths/monitor-optimize-operational-resources-sql-server/?utm_source=chatgpt.com "Monitor and optimize operational resources in Azure SQL - Training | Microsoft Learn"
-[12]: https://learn.microsoft.com/en-us/training/modules/describe-performance-monitoring/?utm_source=chatgpt.com "Describe performance monitoring - Training | Microsoft Learn"
-[13]: https://learn.microsoft.com/en-us/training/modules/configure-sql-server-resources-optimal-performance/?utm_source=chatgpt.com "Configure SQL Server resources for optimal performance - Training | Microsoft Learn"
-[14]: https://learn.microsoft.com/en-us/training/paths/automate-tasks-sql-server/?utm_source=chatgpt.com "Automate database tasks for Azure SQL - Training | Microsoft Learn"
-[15]: https://learn.microsoft.com/en-us/training/modules/configure-automatic-deployment-azure-sql-database/?utm_source=chatgpt.com "Automate database deployment - Training | Microsoft Learn"
-[16]: https://learn.microsoft.com/en-us/training/modules/manage-azure-paas-resources-using-automated-methods/?utm_source=chatgpt.com "Manage Azure PaaS tasks using automation - Training | Microsoft Learn"
+Don't blindly follow older DP-300 YouTube playlists.
+
+Microsoft's current exam objectives became effective **April 24, 2026**. They now explicitly include things such as **Azure Arc-enabled SQL services, Azure SQL Database in Microsoft Fabric, Managed Instance database copy/move, Database Watcher, Always Encrypted with VBS enclaves, ledger, Bicep and newer migration scenarios**. ([Microsoft Learn][2])
+
+Keep this page bookmarked as your **source of truth**:
+
+[Current DP-300 Study Guide — skills measured as of April 24, 2026](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-300)
+
+And use this as your main course:
+
+[Current Microsoft DP-300 Course](https://learn.microsoft.com/en-us/training/courses/dp-300t00)
+
+### For your Azure DBA job, prioritize in this order
+
+**#1 Azure SQL Managed Instance**
+**#2 Microsoft Entra + SQL security**
+**#3 Migration to Azure**
+**#4 Monitoring / Query Store / DMVs / performance**
+**#5 Backup + HA/DR**
+**#6 SQL Server on Azure VM**
+**#7 PowerShell / CLI / automation**
+**#8 Azure SQL Database**
+
+That ordering is slightly different from studying purely for the certification, because it maps more closely to the responsibilities you posted.
+
+[1]: https://learn.microsoft.com/en-us/training/courses/dp-300t00 "Course DP-300T00-A: Implement scalable database solutions using Azure SQL - Training | Microsoft Learn"
+[2]: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ "Study guide for Exam DP-300: Administering Microsoft Azure SQL Solutions | Microsoft Learn"
+[3]: https://learn.microsoft.com/en-us/training/paths/migrate-sql-workloads-azure/ "Migrate SQL Server workloads to Azure SQL DP-3001 - Training | Microsoft Learn"
+[4]: https://learn.microsoft.com/en-us/training/modules/perform-post-migration-tasks-azure-sql/"Perform post-migration tasks on Azure SQL - Training | Microsoft Learn"
